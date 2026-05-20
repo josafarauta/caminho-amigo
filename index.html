@@ -10,133 +10,149 @@
 <body>
 
     <header class="navbar navbar-expand-lg navbar-custom shadow-sm mb-4">
-        <div class="container">
+        <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
             <span class="navbar-brand mb-0 h1">🧩 Caminho Amigo</span>
+            <ul class="nav nav-pills" id="interfaceTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="tutor-tab" data-bs-toggle="tab" data-bs-target="#tutor-pane" type="button" role="tab" aria-controls="tutor-pane" aria-selected="true">👩‍🏫 Vista do Tutor</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="aluno-tab" data-bs-toggle="tab" data-bs-target="#aluno-pane" type="button" role="tab" aria-controls="aluno-pane" aria-selected="false">👦 Vista do Aluno</button>
+                </li>
+            </ul>
             <span class="badge bg-white text-muted border px-3 py-2">AEE - Escola Municipal Volmar de Freitas</span>
         </div>
     </header>
 
     <main class="container mb-5">
-        <div class="row g-4">
+        <div class="tab-content" id="interfaceTabsContent">
             
-            <section class="col-12 col-lg-6">
-                <div class="card h-100 shadow-sm border-0 bg-white p-4">
-                    <div class="border-bottom pb-2 mb-3">
-                        <h2 class="h4 text-secondary mb-1">👩‍🏫 Painel Administrativo do Tutor</h2>
-                        <p class="text-muted small">Gerenciamento operacional e controle de rotinas diárias.</p>
+            <div class="tab-pane fade show active" id="tutor-pane" role="tabpanel" aria-labelledby="tutor-tab" tabindex="0">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-8">
+                        <div class="card shadow-sm border-0 bg-white p-4">
+                            <div class="border-bottom pb-2 mb-3">
+                                <h2 class="h4 text-secondary mb-1">Painel Administrativo do Tutor</h2>
+                                <p class="text-muted small">Gerenciamento operacional e controle de rotinas diárias.</p>
+                            </div>
+
+                            <form onsubmit="event.preventDefault();" class="mb-4 p-3 rounded bg-light border-light">
+                                <h3 class="h6 text-dark fw-bold mb-3">👶 Perfil do Estudante</h3>
+                                <div class="row g-2">
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label small text-muted">Nome do Aluno</label>
+                                        <input type="text" class="form-control" value="Lucas Rocha" readonly>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label small text-muted">Data de Nascimento</label>
+                                        <input type="text" class="form-control" value="12/05/2018" readonly>
+                                    </div>
+                                    <div class="col-12 mb-2">
+                                        <label class="form-label small text-muted">Observações Sensoriais (Módulo 3)</label>
+                                        <textarea class="form-control" rows="2" readonly>Hipersensibilidade a estímulos visuais brilhantes e cores saturadas.</textarea>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <form onsubmit="event.preventDefault();" class="mb-4 p-3 rounded bg-light border-light">
+                                <h3 class="h6 text-dark fw-bold mb-3">✨ Cadastrar Nova Tarefa</h3>
+                                <div class="row g-2">
+                                    <div class="col-12 mb-2">
+                                        <label for="titulo" class="form-label small text-muted">Título da Atividade</label>
+                                        <input type="text" id="titulo" class="form-control" placeholder="Ex: Atividade de Leitura Suave">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="horario_previsto" class="form-label small text-muted">Horário Previsto</label>
+                                        <input type="time" id="horario_previsto" class="form-control" value="08:30">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="caminho_pictograma" class="form-label small text-muted">Caminho do Pictograma</label>
+                                        <select id="caminho_pictograma" class="form-select">
+                                            <option value="/imagens/pictogramas/leitura_pastel.png">📖 Livro (Leitura)</option>
+                                            <option value="/imagens/pictogramas/lanche_pastel.png">🍎 Maçã (Lanche)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-tutor w-100 fw-bold mt-2">Gravar Registro na Tabela Tarefas</button>
+                            </form>
+
+                            <div>
+                                <h3 class="h6 text-dark fw-bold mb-2">📋 Consulta de Controle (Garantia de Sincronização)</h3>
+                                <div class="table-responsive">
+                                    <table class="table table-sm align-middle small text-muted mb-0">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Horário</th>
+                                                <th>Atividade</th>
+                                                <th>Status (Tabela)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>08:30:00</td>
+                                                <td>Atividade de Leitura Suave</td>
+                                                <td><span class="badge bg-warning text-dark">false</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>10:00:00</td>
+                                                <td>Lanche Escolar Coletivo</td>
+                                                <td><span class="badge bg-warning text-dark">false</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </div>
+            </div>
 
-                    <form onsubmit="event.preventDefault();" class="mb-4 p-3 rounded bg-light border-light">
-                        <h3 class="h6 text-dark fw-bold mb-3">👶 Perfil do Estudante</h3>
-                        <div class="row g-2">
-                            <div class="col-md-6 mb-2">
-                                <label class="form-label small text-muted">Nome do Aluno</label>
-                                <input type="text" class="form-control form-control-sm" value="Lucas Rocha" readonly>
+            <div class="tab-pane fade" id="aluno-pane" role="tabpanel" aria-labelledby="aluno-tab" tabindex="0">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-8">
+                        <div class="card shadow-sm border-0 bg-white p-4">
+                            <div class="border-bottom pb-2 mb-4 text-center">
+                                <h2 class="h3 student-title mb-1">👦 Cronograma Visual do Aluno</h2>
+                                <p class="text-muted small">Identidade visual estável com baixo impacto sensorial.</p>
                             </div>
-                            <div class="col-md-6 mb-2">
-                                <label class="form-label small text-muted">Data de Nascimento</label>
-                                <input type="date" class="form-control form-control-sm" value="2018-05-12" readonly>
-                            </div>
-                            <div class="col-12 mb-2">
-                                <label class="form-label small text-muted">Observações Sensoriais (Módulo 3)</label>
-                                <textarea class="form-control form-control-sm" rows="2" readonly>Hipersensibilidade a estímulos visuais brilhantes e cores saturadas.</textarea>
-                            </div>
-                        </div>
-                    </form>
 
-                    <form onsubmit="event.preventDefault();" class="mb-4 p-3 rounded bg-light border-light">
-                        <h3 class="h6 text-dark fw-bold mb-3">✨ Cadastrar Nova Tarefa</h3>
-                        <div class="row g-2">
-                            <div class="col-12 mb-2">
-                                <label for="titulo" class="form-label small text-muted">Título da Atividade</label>
-                                <input type="text" id="titulo" class="form-control form-control-sm" placeholder="Ex: Atividade de Leitura Suave">
-                            </div>
-                            <div class="col-md-6 mb-2">
-                                <label for="horario_previsto" class="form-label small text-muted">Horário Previsto</label>
-                                <input type="time" id="horario_previsto" class="form-control form-control-sm" value="08:30">
-                            </div>
-                            <div class="col-md-6 mb-2">
-                                <label for="caminho_pictograma" class="form-label small text-muted">Caminho do Pictograma</label>
-                                <select id="caminho_pictograma" class="form-select form-select-sm">
-                                    <option value="/imagens/pictogramas/leitura_pastel.png">📖 Livro (Leitura)</option>
-                                    <option value="/imagens/pictogramas/lanche_pastel.png">🍎 Maçã (Lanche)</option>
-                                </select>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-tutor w-100 btn-sm fw-bold mt-2">Gravar Registro na Tabela Tarefas</button>
-                    </form>
+                            <div class="d-flex flex-column gap-3">
+                                
+                                <div class="card card-routine border-0 shadow-sm p-3">
+                                    <div class="row align-items-center">
+                                        <div class="col-3 text-center">
+                                            <div class="pictogram-frame bg-pastel-blue">📖</div>
+                                        </div>
+                                        <div class="col-6">
+                                            <span class="text-muted d-block small fw-bold">08:30</span>
+                                            <h3 class="h5 task-text mb-0">Atividade de Leitura Suave</h3>
+                                        </div>
+                                        <div class="col-3 text-end">
+                                            <button class="btn btn-check-circle shadow-sm" onclick="this.classList.toggle('active')">✓</button>
+                                        </div>
+                                    </div>
+                                </div>
 
-                    <div>
-                        <h3 class="h6 text-dark fw-bold mb-2">📋 Consulta de Controle (Garantia de Sincronização)</h3>
-                        <div class="table-responsive">
-                            <table class="table table-sm align-middle small text-muted mb-0">
-                                <thead class="table-light">
-                                    <tr>
-                                        <th>Horário</th>
-                                        <th>Atividade</th>
-                                        <th>Status (Tabela)</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>08:30:00</td>
-                                        <td>Atividade de Leitura Suave</td>
-                                        <td><span class="badge bg-warning text-dark">false</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>10:00:00</td>
-                                        <td>Lanche Escolar Coletivo</td>
-                                        <td><span class="badge bg-warning text-dark">false</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                <div class="card card-routine border-0 shadow-sm p-3">
+                                    <div class="row align-items-center">
+                                        <div class="col-3 text-center">
+                                            <div class="pictogram-frame bg-pastel-green">🍎</div>
+                                        </div>
+                                        <div class="col-6">
+                                            <span class="text-muted d-block small fw-bold">10:00</span>
+                                            <h3 class="h5 task-text mb-0">Lanche Escolar Coletivo</h3>
+                                        </div>
+                                        <div class="col-3 text-end">
+                                            <button class="btn btn-check-circle shadow-sm" onclick="this.classList.toggle('active')">✓</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <section class="col-12 col-lg-6">
-                <div class="card h-100 shadow-sm border-0 bg-student p-4">
-                    <div class="border-bottom pb-2 mb-4 text-center">
-                        <h2 class="h3 student-title mb-1">👦 Cronograma Visual do Aluno</h2>
-                        <p class="text-muted small">Identidade visual estável com baixo impacto sensorial.</p>
-                    </div>
-
-                    <div class="d-flex flex-column gap-3">
-                        
-                        <div class="card card-routine border-0 shadow-sm p-3">
-                            <div class="row align-items-center">
-                                <div class="col-3 text-center">
-                                    <div class="pictogram-frame bg-pastel-blue">📖</div>
-                                </div>
-                                <div class="col-6">
-                                    <span class="text-muted d-block small fw-bold">08:30</span>
-                                    <h3 class="h5 task-text mb-0">Atividade de Leitura Suave</h3>
-                                </div>
-                                <div class="col-3 text-end">
-                                    <button class="btn btn-check-circle shadow-sm" onclick="this.classList.toggle('active')">✓</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card card-routine border-0 shadow-sm p-3">
-                            <div class="row align-items-center">
-                                <div class="col-3 text-center">
-                                    <div class="pictogram-frame bg-pastel-green">🍎</div>
-                                </div>
-                                <div class="col-6">
-                                    <span class="text-muted d-block small fw-bold">10:00</span>
-                                    <h3 class="h5 task-text mb-0">Lanche Escolar Coletivo</h3>
-                                </div>
-                                <div class="col-3 text-end">
-                                    <button class="btn btn-check-circle shadow-sm" onclick="this.classList.toggle('active')">✓</button>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
+            </div>
 
         </div>
     </main>

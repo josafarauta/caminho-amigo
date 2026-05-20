@@ -1,0 +1,2 @@
+# Caminho Amigo - Tecnologia Assistiva
+Aplicação web responsiva desenvolvida para a organização da rotina visual de crianças com Transtorno do Espectro Autista (TEA) na Escola Municipal Volmar de Freitas.

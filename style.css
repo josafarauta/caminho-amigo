@@ -1,0 +1,92 @@
+/* Customização Arquitetural Frontend - Projeto Caminho Amigo */
+/* RNF-002: Diretrizes de Baixo Impacto Sensorial para Acessibilidade Cognitiva */
+
+body {
+    background-color: #f5f7f8; /* Reduz a emissão extrema de luz branca nas telas */
+    font-family: Arial, Helvetica, sans-serif; /* Tipografia sem serifa de alta legibilidade */
+}
+
+/* Customização Estética Suave da Barra de Navegação */
+.navbar-custom {
+    background-color: #e8f4f1; /* Tom pastel verde-água calmante */
+    border-bottom: 1px solid #d2e6e2;
+}
+.navbar-custom .navbar-brand {
+    color: #3a6351 !important;
+    font-weight: bold;
+}
+
+/* Elementos do Painel Administrativo do Tutor */
+.btn-tutor {
+    background-color: #d8efe9;
+    border: 1px solid #b2dfdb;
+    color: #2d4a3e;
+}
+.btn-tutor:hover {
+    background-color: #b2dfdb;
+}
+
+/* Área Dedicada ao Aluno Neurodivergente */
+.bg-student {
+    background-color: #ffffff;
+    border: 1px solid #eef2f3;
+}
+.student-title {
+    color: #2c5e43;
+    font-weight: bold;
+}
+
+/* Cartões de Rotina (Cards do Bootstrap Customizados) */
+.card-routine {
+    background-color: #fafbfc;
+    border-radius: 16px !important; /* Bordas arredondadas suavizam o design */
+    border: 1px solid #ebf0f1 !important;
+}
+
+/* Moldura Redonda dos Pictogramas Visuais */
+.pictogram-frame {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Definição de Cores da Paleta de Tons Pastéis (Contraste Suave) */
+.bg-pastel-blue {
+    background-color: #e3f2fd; /* Azul suave */
+}
+.bg-pastel-green {
+    background-color: #e8f5e9; /* Verde suave */
+}
+
+.task-text {
+    color: #374151; /* Cinza grafite substitui o preto puro para mitigar fadiga visual */
+    font-weight: bold;
+}
+
+/* Botão Redondo de Confirmação de Conclusão (Fácil Acionamento Tátil) */
+.btn-check-circle {
+    width: 48px;
+    height: 48px;
+    font-size: 1.4rem;
+    border: 2px solid #cbd5e1;
+    background-color: #ffffff;
+    color: #cbd5e1;
+    border-radius: 50%;
+    transition: all 0.15s ease-in-out;
+}
+
+/* Estado de Sucesso Acionado pelo Clique (Interação Amigável) */
+.btn-check-circle.active {
+    background-color: #a3e4d7; /* Verde pastel de sucesso */
+    border-color: #76d7c4;
+    color: #239b56;
+}
+
+/* RNF-002: Desativação estrita de animações piscantes ou efeitos flutuantes */
+* {
+    animation: none !important;
+    transition: none !important;
+}
